@@ -33,6 +33,8 @@ Because of the combination of deep imports (in the generated `ngfactory.js` file
 This causes DI to fail when accessed programatically, i.e., `Injector.get(VanillaJSClass)`.
 
 
+![screenshot](https://i.imgur.com/h6Rq731.png)
+
 --------------------
 
 # How to reproduce
@@ -55,6 +57,6 @@ The repository contains three packages:
 
 Included in the reproduction are the following npm scripts:
 
-- `start` (or `start:aot`): runs `npm start` in `angular-app-which-uses-angularlibrary`.  Use this to show the failing scenario.
-- `start:jit`: runs `npm start:jit` in `angular-app-which-uses-angularlibrary`. Use this to contrast the behavior in JIT mode.
-- `bump`: rebuilds `vanillajslibrary` and `angularlibrary`, then installs the newly built versions into `angular-app-which-uses-angularlibrary`.  Use this to make changes to the library code(s) and then check the behavior in `angular-app-which-uses-angularlibrary`.
+- `npm run bump`: rebuilds `vanillajslibrary` and `angularlibrary`, then installs the newly built versions into `angular-app-which-uses-angularlibrary`.  Use this to make changes to the library code(s) and then check the behavior in `angular-app-which-uses-angularlibrary`.
+- `npm run start`: runs `bump` then starts the app in AoT mode. Use this to show the failing scenario.
+- `npm run start:jit`: runs `bump` then starts the app in JIT mode. Use this to contrast the behavior in JIT mode.

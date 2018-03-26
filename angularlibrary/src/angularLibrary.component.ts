@@ -48,14 +48,14 @@ export class AngularLibraryComponent {
     this.instanceFromComponentDIStringified = JSON.stringify(this.instanceFromComponentDI);
     this.instanceFromInjectorStringified = JSON.stringify(this.instanceFromInjector);
 
-    console.log("instance from component DI", this.instanceFromComponentDI);
-    console.log("instance injected using local token", this.instanceFromInjector);
+    const ClassFromInjectedObject: typeof VanillaJSClass = this.instanceFromComponentDI.constructor as any;
+    const ClassFromImportStatement: typeof VanillaJSClass = VanillaJSClass;
+    console.log(`Instances ${this.instanceFromComponentDI === this.instanceFromInjector ? "are" : "are not"} the same`)
+    console.log(`Classes ${ClassFromInjectedObject === ClassFromImportStatement ? "are" : "are not"} the same`)
 
-    const ClassFromComponentDI: typeof VanillaJSClass = this.instanceFromComponentDI.constructor as any;
-    const ClassFromInjector: typeof VanillaJSClass = VanillaJSClass;
+    logClassInfo(ClassFromInjectedObject);
 
-    logClassInfo(ClassFromComponentDI);
-    logClassInfo(ClassFromInjector);
+    logClassInfo(ClassFromImportStatement);
 
     function logClassInfo(ClassRef: typeof VanillaJSClass) {
       ClassRef.logMessageFromVanillaLibrary();
