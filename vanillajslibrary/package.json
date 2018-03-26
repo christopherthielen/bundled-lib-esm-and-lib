@@ -1,6 +1,6 @@
 {
   "name": "vanillajslibrary",
-  "version": "1.0.1-37",
+  "version": "1.0.1-39",
   "scripts": {
     "xinstall": "npm run build",
     "clean": "shx rm -rf lib lib-esm _bundles",

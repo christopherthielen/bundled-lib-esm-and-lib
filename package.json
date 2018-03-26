@@ -1,11 +1,13 @@
 {
   "name": "bundled-lib-esm-and-lib",
+  "devDependencies": {
+    "shx": "latest"
+  },
   "scripts": {
-    "postinstall": "npm run install:all && cd angular-app-which-uses-angularlibrary && npm run bump && npm start",
-    "start": "cd angular-app-which-uses-angularlibrary && npm run bump && npm start",
-    "install:all": "npm run install:vanillajslibrary && npm run install:angularlibrary && npm run install:app",
-    "install:vanillajslibrary": "cd vanillajslibrary && npm install && npm run build",
-    "install:angularlibrary": "cd angularlibrary && npm install && npm run build",
-    "install:app": "cd angular-app-which-uses-angularlibrary && npm install"
+    "postinstall": "npm run bump",
+    "start": "npm run bump && cd angular-app-which-uses-angularlibrary && npm start",
+    "build:vanillajslibrary": "cd vanillajslibrary && npm i && shx rm -rf *.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz vanillajslibrary.tgz",
+    "build:angularlibrary": "cd angularlibrary && npm i && shx rm -rf *.tgz && npm i ../vanillajslibrary/vanillajslibrary.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz angularlibrary.tgz",
+    "bump": "npm run build:vanillajslibrary && npm run build:angularlibrary && cd angular-app-which-uses-angularlibrary && npm install --save ../vanillajslibrary/vanillajslibrary.tgz ../angularlibrary/angularlibrary.tgz"
   }
 }

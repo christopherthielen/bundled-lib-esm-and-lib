@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npm run bump",
+    "postinstall": "npm run bump",
     "build:vanillajslibrary": "cd ../vanillajslibrary && npm i && shx rm -rf *.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz vanillajslibrary.tgz",
     "build:angularlibrary": "cd ../angularlibrary && npm i && shx rm -rf *.tgz && npm i ../vanillajslibrary/vanillajslibrary.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz angularlibrary.tgz",
     "bump": "npm run build:vanillajslibrary && npm run build:angularlibrary && npm install --save ../vanillajslibrary/vanillajslibrary.tgz ../angularlibrary/angularlibrary.tgz",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "ng serve --aot",
+    "build": "ng build --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
