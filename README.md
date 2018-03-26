@@ -40,8 +40,8 @@ This causes DI to fail when accessed programatically, i.e., `Injector.get(Vanill
 - `git clone git@github.com:christopherthielen/bundled-lib-esm-and-lib.git`
 - `cd bundled-lib-esm-and-lib`
 - `npm install`
-- `npm start:jit` # works fine
-- `npm start:aot` # fails due to different DI tokens
+- `npm run start:jit` # works fine
+- `npm run start:aot` # fails due to different DI tokens
 
 ### Reproduction repo details
 
