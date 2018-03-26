@@ -1,0 +1,37 @@
+{
+  "name": "angularlibrary",
+  "version": "1.0.0-36",
+  "scripts": {
+    "xinstall": "npm run build",
+    "clean": "shx rm -rf lib lib-esm _bundles _doc",
+    "compile": "npm run clean && ngc",
+    "bundle": "rollup -c",
+    "build": "npm run compile && npm run bundle"
+  },
+  "license": "MIT",
+  "main": "_bundles/ui-router-ng2.js",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "devDependencies": {
+    "@angular/common": ">=5.0.0",
+    "@angular/compiler": ">=5.0.0",
+    "@angular/compiler-cli": ">=5.0.0",
+    "@angular/core": ">=5.0.0",
+    "@angular/platform-browser": ">=5.0.0",
+    "@angular/platform-browser-dynamic": ">=5.0.0",
+    "@angular/platform-server": ">=5.0.0",
+    "@angular/router": ">=5.0.0",
+    "rollup": "0.57.1",
+    "rollup-plugin-commonjs": "9.1.0",
+    "rollup-plugin-node-resolve": "3.3.0",
+    "rollup-plugin-sourcemaps": "0.4.2",
+    "rollup-plugin-uglify": "3.0.0",
+    "rxjs": "5.5.7",
+    "shx": "0.2.2",
+    "ts-loader": "3.5.0",
+    "tslint": "5.9.1",
+    "typescript": "2.7.2",
+    "vanillajslibrary": "file:../vanillajslibrary/vanillajslibrary.tgz",
+    "zone.js": "0.8.20"
+  }
+}
