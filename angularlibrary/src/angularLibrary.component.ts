@@ -22,6 +22,13 @@ import { VanillaJSClass } from 'vanillajslibrary';
         <li>Instance from Injector.get(): <code>{{ instanceFromInjectorStringified }}</code></li>
       </ul>
     </div>
+
+    <p>
+      Open the console and hit refresh.
+      Note the names of the files.  
+      Similar output on the console should have the same file names/line numbers.
+      However, in AoT mode you should notice some coming from <code>vanillaJsClass.js</code> and some coming from <code>vanillajslibrary.umd.js</code>.
+    </p>
    `
 })
 export class AngularLibraryComponent {

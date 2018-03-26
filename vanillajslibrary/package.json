@@ -1,6 +1,6 @@
 {
   "name": "vanillajslibrary",
-  "version": "1.0.1-44",
+  "version": "1.0.1-45",
   "scripts": {
     "xinstall": "npm run build",
     "clean": "shx rm -rf lib lib-esm _bundles",
@@ -9,7 +9,6 @@
     "bundle": "rollup -c"
   },
   "main": "_bundles/vanillajslibrary.umd.js",
-  "xmain": "lib/index.js",
   "typings": "lib/index.d.ts",
   "jsnext:main": "lib-esm/index.js",
   "license": "MIT",
