@@ -60,3 +60,26 @@ Included in the reproduction are the following npm scripts:
 - `npm run bump`: rebuilds `vanillajslibrary` and `angularlibrary`, then installs the newly built versions into `angular-app-which-uses-angularlibrary`.  Use this to make changes to the library code(s) and then check the behavior in `angular-app-which-uses-angularlibrary`.
 - `npm run start`: runs `bump` then starts the app in AoT mode. Use this to show the failing scenario.
 - `npm run start:jit`: runs `bump` then starts the app in JIT mode. Use this to contrast the behavior in JIT mode.
+
+
+# Component DI / Injector 
+
+
+[Link to Component DI vs manual Injector.get()](https://github.com/christopherthielen/bundled-lib-esm-and-lib/blob/fe8be72c6f1d06a88de89cf0b89e2599c261a47b/angularlibrary/src/angularLibrary.component.ts#L42-L44)
+
+```ts
+import { VanillaJSClass } from 'vanillajslibrary';
+/* lines omitted */
+
+export class AngularLibraryComponent {
+  instanceFromComponentDI: VanillaJSClass;
+  instanceFromInjector: VanillaJSClass;
+  /* lines omitted */
+
+  constructor(instanceFromComponentDI: VanillaJSClass, injector: Injector) { 
+    this.instanceFromComponentDI = instanceFromComponentDI;
+    this.instanceFromInjector = injector.get(VanillaJSClass, null);
+    /* lines omitted */
+  }
+}
+```
