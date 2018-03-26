@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npm run bump",
-    "build:vanillajslibrary": "cd ../vanillajslibrary && shx rm -rf *.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz vanillajslibrary.tgz",
-    "build:angularlibrary": "cd ../angularlibrary && shx rm -rf *.tgz && npm i ../vanillajslibrary/vanillajslibrary.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz angularlibrary.tgz",
+    "build:vanillajslibrary": "cd ../vanillajslibrary && npm i && shx rm -rf *.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz vanillajslibrary.tgz",
+    "build:angularlibrary": "cd ../angularlibrary && npm i && shx rm -rf *.tgz && npm i ../vanillajslibrary/vanillajslibrary.tgz && npm version prerelease --no-git-tag-version && npm run build && npm pack && shx mv *.tgz angularlibrary.tgz",
     "bump": "npm run build:vanillajslibrary && npm run build:angularlibrary && npm install --save ../vanillajslibrary/vanillajslibrary.tgz ../angularlibrary/angularlibrary.tgz",
     "ng": "ng",
     "start": "ng serve",

@@ -1,0 +1,11 @@
+{
+  "name": "bundled-lib-esm-and-lib",
+  "scripts": {
+    "postinstall": "npm run install:all && cd angular-app-which-uses-angularlibrary && npm run bump && npm start",
+    "start": "cd angular-app-which-uses-angularlibrary && npm run bump && npm start",
+    "install:all": "npm run install:vanillajslibrary && npm run install:angularlibrary && npm run install:app",
+    "install:vanillajslibrary": "cd vanillajslibrary && npm install && npm run build",
+    "install:angularlibrary": "cd angularlibrary && npm install && npm run build",
+    "install:app": "cd angular-app-which-uses-angularlibrary && npm install"
+  }
+}
