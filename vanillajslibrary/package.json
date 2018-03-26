@@ -1,12 +1,12 @@
 {
   "name": "vanillajslibrary",
-  "version": "1.0.1-39",
+  "version": "1.0.1-43",
   "scripts": {
     "xinstall": "npm run build",
     "clean": "shx rm -rf lib lib-esm _bundles",
     "compile": "npm run clean && tsc && tsc -m es6 --outDir lib-esm",
     "build": "npm run compile && npm run bundle",
-    "bundle": "rollup -c && rollup -c --environment MINIFY"
+    "bundle": "rollup -c"
   },
   "main": "_bundles/vanillajslibrary.umd.js",
   "xmain": "lib/index.js",
