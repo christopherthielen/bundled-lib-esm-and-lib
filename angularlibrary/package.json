@@ -1,6 +1,6 @@
 {
   "name": "angularlibrary",
-  "version": "1.0.0-42",
+  "version": "1.0.0-43",
   "scripts": {
     "xinstall": "npm run build",
     "clean": "shx rm -rf lib lib-esm _bundles _doc",
